@@ -1,102 +1,83 @@
-import Image from "next/image";
-
+// pages/index.js
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen flex flex-col bg-gray-50 font-sans">
+      {/* HEADER */}
+      <header className="flex justify-between items-center px-8 py-5 bg-white shadow">
+        <div className="text-2xl font-bold text-indigo-700">Plataforma Transformacional</div>
+        <nav className="space-x-6">
+          <a href="#cursos" className="hover:text-indigo-500 font-medium">Cursos</a>
+          <a href="#seminarios" className="hover:text-indigo-500 font-medium">Seminarios</a>
+          <a href="#en-vivo" className="hover:text-indigo-500 font-medium">En Vivo</a>
+          <a href="#patrocina" className="hover:text-indigo-500 font-medium">Patrocina</a>
+        </nav>
+        <button className="bg-indigo-600 text-white rounded-xl px-4 py-2 font-semibold hover:bg-indigo-700 shadow-md">
+          Ingresar
+        </button>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+      {/* BANNER PRINCIPAL */}
+      <section className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-16 px-8 mt-2 rounded-3xl shadow-lg mx-4">
+        <div>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">¡Revoluciona tu vida con contenido transformacional!</h1>
+          <p className="text-xl mb-6 max-w-xl">
+            Cursos, seminarios y transmisiones en vivo para tu crecimiento personal, profesional y espiritual. ¡Próximamente!
+          </p>
+          <a href="#patrocina" className="bg-white text-indigo-700 px-6 py-3 rounded-xl font-semibold shadow-lg hover:bg-indigo-100">
+            Reserva tu espacio como patrocinante
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <div className="mt-8 md:mt-0">
+          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Transformación" className="rounded-2xl shadow-xl w-72 md:w-96"/>
+        </div>
+      </section>
+
+      {/* ESPACIO PARA ANUNCIANTES/PATROCINANTES */}
+      <section id="patrocina" className="my-12 mx-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center justify-center min-h-48 border-2 border-dashed border-indigo-400">
+          <span className="text-indigo-600 text-xl font-bold mb-2">¡Aquí tu marca!</span>
+          <span className="text-gray-500">Espacio premium para patrocinantes</span>
+          <button className="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 shadow">Solicitar espacio</button>
+        </div>
+        <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center justify-center min-h-48 border-2 border-dashed border-purple-400">
+          <span className="text-purple-600 text-xl font-bold mb-2">Anuncia aquí</span>
+          <span className="text-gray-500">Llega a miles de usuarios desde el inicio</span>
+          <button className="mt-4 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 shadow">Convertirse en anunciante</button>
+        </div>
+      </section>
+
+      {/* SECCIONES DE CONTENIDO */}
+      <section id="cursos" className="mx-4 mb-8">
+        <h2 className="text-2xl font-bold mb-4 text-indigo-700">Cursos Destacados</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-gray-200 rounded-xl p-6 flex items-center justify-center text-lg font-semibold text-gray-500 border-2 border-dashed border-gray-400">Próximamente</div>
+          <div className="bg-gray-200 rounded-xl p-6 flex items-center justify-center text-lg font-semibold text-gray-500 border-2 border-dashed border-gray-400">Próximamente</div>
+          <div className="bg-gray-200 rounded-xl p-6 flex items-center justify-center text-lg font-semibold text-gray-500 border-2 border-dashed border-gray-400">Próximamente</div>
+        </div>
+      </section>
+      <section id="seminarios" className="mx-4 mb-8">
+        <h2 className="text-2xl font-bold mb-4 text-purple-700">Seminarios y Capacitaciones</h2>
+        <div className="bg-gray-200 rounded-xl p-6 flex items-center justify-center text-lg font-semibold text-gray-500 border-2 border-dashed border-gray-400">Próximamente</div>
+      </section>
+      <section id="en-vivo" className="mx-4 mb-8">
+        <h2 className="text-2xl font-bold mb-4 text-pink-700">Streaming en Vivo</h2>
+        <div className="bg-gray-200 rounded-xl p-6 flex items-center justify-center text-lg font-semibold text-gray-500 border-2 border-dashed border-gray-400">Próximamente</div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="mt-auto bg-indigo-950 text-white py-8 text-center rounded-t-3xl shadow-lg">
+        <div className="mb-2">© {new Date().getFullYear()} Plataforma Transformacional</div>
+        <div>
+          Síguenos:
+          <a href="#" className="ml-2 underline hover:text-indigo-300">Instagram</a>
+          <a href="#" className="ml-2 underline hover:text-indigo-300">LinkedIn</a>
+          <a href="#" className="ml-2 underline hover:text-indigo-300">Contacto</a>
+        </div>
+        <div className="mt-2">
+          ¿Quieres recibir noticias del lanzamiento? 
+          <input type="email" placeholder="Tu correo" className="ml-2 px-3 py-1 rounded-md text-gray-900" />
+          <button className="ml-2 bg-pink-600 hover:bg-pink-700 text-white px-4 py-1 rounded-md">Suscribirme</button>
+        </div>
       </footer>
     </div>
   );
