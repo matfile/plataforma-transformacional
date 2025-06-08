@@ -1,11 +1,31 @@
 "use client";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 function EspacioPatrocinante({ numero, color = "indigo" }) {
   const [logo, setLogo] = useState(null);
   const fileInputRef = useRef(null);
+  const storageKey = `logo_patrocinante_${numero}`;
 
-  // Selector de colores
+  useEffect(() => {
+    const savedLogo = localStorage.getItem(storageKey);
+    if (savedLogo) setLogo(savedLogo);
+  }, [storageKey]);
+
+  function handleLogoChange(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      setLogo(event.target.result);
+      localStorage.setItem(storageKey, event.target.result);
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function handleButtonClick() {
+    fileInputRef.current.click();
+  }
+
   const estilos = {
     indigo: {
       border: "border-indigo-400",
@@ -32,19 +52,6 @@ function EspacioPatrocinante({ numero, color = "indigo" }) {
       hover: "hover:bg-green-700"
     }
   };
-
-  function handleLogoChange(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (event) => setLogo(event.target.result);
-    reader.readAsDataURL(file);
-  }
-
-  function handleButtonClick() {
-    // Abre el selector de archivos
-    fileInputRef.current.click();
-  }
 
   return (
     <div className={`bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center justify-center min-h-48 border-2 border-dashed ${estilos[color].border}`}>
@@ -117,18 +124,28 @@ export default function Home() {
       <section id="cursos" className="mx-4 mb-8">
         <h2 className="text-2xl font-bold mb-4 text-indigo-700">Cursos Destacados</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-gray-200 rounded-xl p-6 flex items-center justify-center text-lg font-semibold text-gray-500 border-2 border-dashed border-gray-400">Próximamente</div>
-          <div className="bg-gray-200 rounded-xl p-6 flex items-center justify-center text-lg font-semibold text-gray-500 border-2 border-dashed border-gray-400">Próximamente</div>
-          <div className="bg-gray-200 rounded-xl p-6 flex items-center justify-center text-lg font-semibold text-gray-500 border-2 border-dashed border-gray-400">Próximamente</div>
+          <div className="bg-gray-200 rounded-xl p-6 flex items-center justify-center text-lg font-semibold text-gray-500 border-2 border-dashed border-gray-400">
+            Próximamente
+          </div>
+          <div className="bg-gray-200 rounded-xl p-6 flex items-center justify-center text-lg font-semibold text-gray-500 border-2 border-dashed border-gray-400">
+            Próximamente
+          </div>
+          <div className="bg-gray-200 rounded-xl p-6 flex items-center justify-center text-lg font-semibold text-gray-500 border-2 border-dashed border-gray-400">
+            Próximamente
+          </div>
         </div>
       </section>
       <section id="seminarios" className="mx-4 mb-8">
         <h2 className="text-2xl font-bold mb-4 text-purple-700">Seminarios y Capacitaciones</h2>
-        <div className="bg-gray-200 rounded-xl p-6 flex items-center justify-center text-lg font-semibold text-gray-500 border-2 border-dashed border-gray-400">Próximamente</div>
+        <div className="bg-gray-200 rounded-xl p-6 flex items-center justify-center text-lg font-semibold text-gray-500 border-2 border-dashed border-gray-400">
+          Próximamente
+        </div>
       </section>
       <section id="en-vivo" className="mx-4 mb-8">
         <h2 className="text-2xl font-bold mb-4 text-pink-700">Streaming en Vivo</h2>
-        <div className="bg-gray-200 rounded-xl p-6 flex items-center justify-center text-lg font-semibold text-gray-500 border-2 border-dashed border-gray-400">Próximamente</div>
+        <div className="bg-gray-200 rounded-xl p-6 flex items-center justify-center text-lg font-semibold text-gray-500 border-2 border-dashed border-gray-400">
+          Próximamente
+        </div>
       </section>
 
       {/* FOOTER */}
